@@ -5,21 +5,55 @@ using UnityEngine;
 public class Door : MonoBehaviour {
     public bool IsRight;
     public bool IsLeft;
+    public bool IsUp;
+    public bool IsDown;
+
+    private bool IsOpen = true;
+    private bool IsActive = false;
 
     // Use this for initialization
     void Start () {
 		
 	}
 
-    // Update is called once per frame
+    void Update()
+    {
+        if (IsActive && IsOpen && Input.GetButtonDown(PC2D.Input.INTERACT))
+        {
+            var roomManager = GameObject.Find("room_manager").GetComponent<RoomManager>();
+
+            if (IsRight)
+                roomManager.MoveRight();
+
+            if (IsLeft)
+                roomManager.MoveLeft();
+
+            if (IsUp)
+                roomManager.MoveUp();
+
+            if (IsDown)
+                roomManager.MoveDown();
+
+            IsActive = false;
+            var spriteRenderer = GetComponent<SpriteRenderer>();
+
+            spriteRenderer.color = Color.white;
+        }
+    }
+    
     void OnTriggerEnter2D(Collider2D other)
     {
-        var roomManager = GameObject.Find("RoomManager").GetComponent<RoomManager>();
+        IsActive = true;
+        var spriteRenderer = GetComponent<SpriteRenderer>();
+        
+        spriteRenderer.color = IsOpen ? Color.green : Color.red;
+    }
 
-        if (IsRight)
-            roomManager.MoveRight();
+    void OnTriggerExit2D(Collider2D other)
+    {
+        IsActive = false;
+        var spriteRenderer = GetComponent<SpriteRenderer>();
 
-        if (IsLeft)
-            roomManager.MoveLeft();
+        spriteRenderer.color = Color.white;
     }
 }

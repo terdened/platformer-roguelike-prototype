@@ -15,12 +15,19 @@ public class LevelBuilder : MonoBehaviour
     private LevelGeneration levelGenerator = new LevelGeneration();
     private GameObject[][] roomInstances;
 
+    public GameObject[][] RoomInstances {
+        get
+        {
+            return roomInstances;
+        }
+    }
+
     void Start () {
-        Generate();
+        //Generate();
     }
 
 
-    void Generate()
+    public void Generate()
     {
         levelGenerator.Generate(new Vector2(gridSizeX, gridSizeY), numberOfRooms);
         var rooms = levelGenerator.GetRooms();
@@ -39,12 +46,6 @@ public class LevelBuilder : MonoBehaviour
 
                 var roomPosition = new Vector2(i * roomHeight, j * roomWidth);
                 roomInstances[i][j] = Instantiate(roomPrefabs[rooms[i,j].GetRoomNumber()], roomPosition, Quaternion.identity);
-
-                if(rooms[i, j].type == 1)
-                {
-                    var roomCamera = (RoomCamera)camera.GetComponent<RoomCamera>();
-                    roomCamera.SetCurrnetRoom(new Vector2(i, j));
-                }
             }
         }
     }

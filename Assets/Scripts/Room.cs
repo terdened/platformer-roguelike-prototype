@@ -17,17 +17,17 @@ public class Room {
         int binaryResult = 0;
 
         if (doorTop)
-            binaryResult += 1000;
-        
-        if (doorRight)
-            binaryResult += 100;
-        
-        if (doorBot)
-            binaryResult += 10;
-        
-        if (doorLeft)
             binaryResult += 1;
         
+        if (doorRight)
+            binaryResult += 10;
+        
+        if (doorBot)
+            binaryResult += 100;
+        
+        if (doorLeft)
+            binaryResult += 1000;
+
         return Convert.ToInt32(binaryResult.ToString(), 2);
     }
 }
