@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour {
 	Vector2 worldSize;
-	Room[,] rooms;
+	Room[][] rooms;
 	List<Vector2> takenPositions;
     int gridSizeX;
     int gridSizeY;
@@ -35,8 +35,14 @@ public class LevelGeneration : MonoBehaviour {
 
 	void CreateRooms(){
 		//setup
-		rooms = new Room[gridSizeX * 2, gridSizeY * 2];
-		rooms[gridSizeX, gridSizeY] = new Room(Vector2.zero, 1);
+		rooms = new Room[gridSizeX * 2][];
+
+        for(int i = 0; i < gridSizeX * 2; i++)
+        {
+            rooms[i] = new Room[gridSizeY * 2];
+        }
+
+		rooms[gridSizeX][gridSizeY] = new Room(Vector2.zero, 1);
 		takenPositions.Insert(0,Vector2.zero);
 		Vector2 checkPos = Vector2.zero;
         //magic numbers
@@ -61,7 +67,7 @@ public class LevelGeneration : MonoBehaviour {
 					print("error: could not create with fewer neighbors than : " + NumberOfNeighbors(checkPos, takenPositions));
 			}
 			//finalize position
-			rooms[(int) checkPos.x + gridSizeX, (int) checkPos.y + gridSizeY] = new Room(checkPos, 0);
+			rooms[(int) checkPos.x + gridSizeX][(int) checkPos.y + gridSizeY] = new Room(checkPos, 0);
 			takenPositions.Insert(0,checkPos);
 		}	
 	}
@@ -148,55 +154,60 @@ public class LevelGeneration : MonoBehaviour {
 	}
 
 	void DrawMap(){
-		foreach (Room room in rooms){
-			if (room == null){
-				continue; //skip where there is no room
-			}
-			Vector2 drawPos = room.gridPos;
-			drawPos.x *= 16;//aspect ratio of map sprite
-			drawPos.y *= 8;
-			//create map obj and assign its variables
-			MapSpriteSelector mapper = Object.Instantiate(roomWhiteObj, drawPos, Quaternion.identity).GetComponent<MapSpriteSelector>();
-			mapper.type = room.type;
-			mapper.up = room.doorTop;
-			mapper.down = room.doorBot;
-			mapper.right = room.doorRight;
-			mapper.left = room.doorLeft;
-		}
+        for(int i = 0; i < rooms.Length; i++)
+        {
+            for (int j = 0; j < rooms[i].Length; j++)
+            {
+                if (rooms[i][j] == null)
+                {
+                    continue; //skip where there is no room
+                }
+                Vector2 drawPos = rooms[i][j].gridPos;
+                drawPos.x *= 16;//aspect ratio of map sprite
+                drawPos.y *= 8;
+                //create map obj and assign its variables
+                MapSpriteSelector mapper = Object.Instantiate(roomWhiteObj, drawPos, Quaternion.identity).GetComponent<MapSpriteSelector>();
+                mapper.type = rooms[i][j].type;
+                mapper.up = rooms[i][j].doorTop;
+                mapper.down = rooms[i][j].doorBot;
+                mapper.right = rooms[i][j].doorRight;
+                mapper.left = rooms[i][j].doorLeft;
+            }
+        }
 	}
 
 	void SetRoomDoors(){
 		for (int x = 0; x < ((gridSizeX * 2)); x++){
 			for (int y = 0; y < ((gridSizeY * 2)); y++){
-				if (rooms[x,y] == null){
+				if (rooms[x][y] == null){
 					continue;
 				}
 				Vector2 gridPosition = new Vector2(x,y);
 				if (y - 1 < 0){ //check above
-					rooms[x,y].doorBot = false;
+                    rooms[x][y].doorBot = false;
 				}else{
-					rooms[x,y].doorBot = (rooms[x,y-1] != null);
+                    rooms[x][y].doorBot = (rooms[x][y-1] != null);
 				}
 				if (y + 1 >= gridSizeY * 2){ //check bellow
-					rooms[x,y].doorTop = false;
+                    rooms[x][y].doorTop = false;
 				}else{
-					rooms[x,y].doorTop = (rooms[x,y+1] != null);
+                    rooms[x][y].doorTop = (rooms[x][y+1] != null);
 				}
 				if (x - 1 < 0){ //check left
-					rooms[x,y].doorLeft = false;
+                    rooms[x][y].doorLeft = false;
 				}else{
-					rooms[x,y].doorLeft = (rooms[x - 1,y] != null);
+                    rooms[x][y].doorLeft = (rooms[x-1][y] != null);
 				}
 				if (x + 1 >= gridSizeX * 2){ //check right
-					rooms[x,y].doorRight = false;
+                    rooms[x][y].doorRight = false;
 				}else{
-					rooms[x,y].doorRight = (rooms[x+1,y] != null);
+                    rooms[x][y].doorRight = (rooms[x+1][y] != null);
 				}
 			}
 		}
 	}
 
-    public Room[,] GetRooms()
+    public Room[][] GetRooms()
     {
         return rooms;
     }

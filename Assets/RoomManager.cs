@@ -10,13 +10,17 @@ public class RoomManager : MonoBehaviour {
     public int roomWidth = 18;
     public int roomHeight = 10;
     private GameObject[][] roomInstances;
+    private MinimapScript miniMap;
 
     // Use this for initialization
     void Start () {
         var levelBuilder = levelBuilderPrefab.GetComponent<LevelBuilder>();
+        miniMap = GameObject.Find("mini_map").GetComponent<MinimapScript>();
 
         levelBuilder.Generate();
         roomInstances = levelBuilder.RoomInstances;
+
+        miniMap.SetRooms(levelBuilder.Rooms);
 
         SetCurrentPosition(new Vector2(4, 4));
         player.transform.position = new Vector3(roomWidth * currentPosition.x, roomHeight * currentPosition.y - 2, player.transform.position.z);
@@ -61,6 +65,7 @@ public class RoomManager : MonoBehaviour {
     public void SetCurrentPosition(Vector2 newPosition)
     {
         currentPosition = newPosition;
+        miniMap.SetCurrentRoom(currentPosition);
 
         var roomCamera = camera.GetComponent<RoomCamera>();
         roomCamera.SetCurrnetRoom(new Vector2(currentPosition.x, currentPosition.y));
