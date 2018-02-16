@@ -10,6 +10,7 @@ namespace PC2D
         public const string JUMP = "Jump";
         public const string DASH = "Fire1";
         public const string INTERACT = "Fire2";
+        public const string FIRE = "Fire3";
     }
 
     public class Globals
