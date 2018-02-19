@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BuletScript : MonoBehaviour {
-    public float speed;
-    public float distance;
-    public float damage;
+    private float speed;
+    private float distance;
+    private float damage;
 
     private Vector3 startPosition;
     private Vector3 direction;
@@ -15,9 +15,12 @@ public class BuletScript : MonoBehaviour {
         startPosition = transform.position;
     }
 
-    public void Init(Vector3 direction)
+    public void Init(Vector3 direction, float speed, float distance, float damage)
     {
         this.direction = direction;
+        this.speed = speed;
+        this.distance = distance;
+        this.damage = damage;
     }
 	
 	// Update is called once per frame
