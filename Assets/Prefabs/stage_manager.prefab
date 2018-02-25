@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4417917548017650}
   - component: {fileID: 114183177196490586}
   m_Layer: 0
-  m_Name: room_manager
+  m_Name: stage_manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,5 +54,6 @@ MonoBehaviour:
   currentPosition: {x: 0, y: 0}
   camera: {fileID: 0}
   player: {fileID: 0}
+  levelBuilderPrefab: {fileID: 0}
   roomWidth: 18
   roomHeight: 10

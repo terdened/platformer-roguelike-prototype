@@ -436,6 +436,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4389686182095048}
+  - component: {fileID: 114401647789854784}
   m_Layer: 0
   m_Name: room_4
   m_TagString: Untagged
@@ -1547,6 +1548,20 @@ MonoBehaviour:
   IsLeft: 0
   IsUp: 0
   IsDown: 1
+--- !u!114 &114401647789854784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1972821405938360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b840412e9bf5904caa88268dc739126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClear: 0
+  isRewardSpawned: 0
+  enemies: []
 --- !u!114 &114413577390637592
 MonoBehaviour:
   m_ObjectHideFlags: 1

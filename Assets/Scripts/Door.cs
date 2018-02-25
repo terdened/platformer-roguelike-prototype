@@ -20,7 +20,7 @@ public class Door : MonoBehaviour {
     {
         if (IsActive && IsOpen && Input.GetButtonDown(PC2D.Input.INTERACT))
         {
-            var roomManager = GameObject.Find("room_manager").GetComponent<RoomManager>();
+            var roomManager = GameObject.Find("stage_manager").GetComponent<StageManager>();
 
             if (IsRight)
                 roomManager.MoveRight();
