@@ -20,10 +20,9 @@ public class RoomManager : MonoBehaviour {
             if(!roomScript.isRewardSpawned && roomScript.isClear)
             {
                 var rewardIndex = Random.Range(0, rewards.Count);
-                Debug.Log(rewardIndex);
                 Instantiate(rewards[rewardIndex], currentRoom.transform.position + new Vector3(-3, -9f, 0), Quaternion.identity);
                 roomScript.isRewardSpawned = true;
             }
-        }	
+        }
 	}
 }
