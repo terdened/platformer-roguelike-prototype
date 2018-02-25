@@ -36,4 +36,9 @@ public abstract class BaseWeapon : MonoBehaviour {
             Fire();
         }
     }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }
