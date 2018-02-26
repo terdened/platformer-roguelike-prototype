@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,34 +20,37 @@ public class PlayerStats : MonoBehaviour {
     private float InitialJumpPower;
     private float InitialMoveSpeed;
 
+    public List<StatEffect> effects;
+
     public float GetFireRate()
     {
-        return InitialFireRate;
+        var result = InitialFireRate + effects.Sum(_ => _.AdditionalFireRate);
+        return result > 0.1f ? result : 0.1f;
     }
 
     public float GetDamage()
     {
-        return InitialDamage;
+        return InitialDamage + effects.Sum(_ => _.AdditionalDamage);
     }
 
     public float GetBuletDistance()
     {
-        return InitialBuletDistance;
+        return InitialBuletDistance + effects.Sum(_ => _.AdditionalBuletDistance);
     }
 
     public float GetBuletSpeed()
     {
-        return InitialBuletSpeed;
+        return InitialBuletSpeed + effects.Sum(_ => _.AdditionalBuletSpeed);
     }
 
     public float GetJumpPower()
     {
-        return InitialJumpPower;
+        return InitialJumpPower + effects.Sum(_ => _.AdditionalJumpPower);
     }
 
     public float GetMoveSpeed()
     {
-        return InitialMoveSpeed;
+        return InitialMoveSpeed + effects.Sum(_ => _.AdditionalMoveSpeed);
     }
 
     void Update()
@@ -67,10 +71,10 @@ public class PlayerStats : MonoBehaviour {
 
         if(weapon != null)
         {
-            dmgText.text = (InitialDamage * weapon.DamageK).ToString();
-            frText.text = (InitialFireRate * weapon.FireRateK).ToString();
-            bsText.text = (InitialBuletSpeed * weapon.BuletSpeedK).ToString();
-            bdText.text = (InitialBuletDistance * weapon.BuletDistanceK).ToString();
+            dmgText.text = (GetDamage() * weapon.DamageK).ToString();
+            frText.text = (GetFireRate() * weapon.FireRateK).ToString();
+            bsText.text = (GetBuletSpeed() * weapon.BuletSpeedK).ToString();
+            bdText.text = (GetBuletDistance() * weapon.BuletDistanceK).ToString();
         }
     }
 }
