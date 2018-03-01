@@ -30,4 +30,16 @@ public class Room {
 
         return Convert.ToInt32(binaryResult.ToString(), 2);
     }
+
+    public List<bool> GetBitArray()
+    {
+        var result = new List<bool>();
+
+        result.Add(doorLeft);
+        result.Add(doorBot);
+        result.Add(doorRight);
+        result.Add(doorTop);
+
+        return result;
+    }
 }

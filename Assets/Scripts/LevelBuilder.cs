@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelBuilder : MonoBehaviour
 {
-    public GameObject[] roomPrefabs;
+    public List<GameObject> roomPrefabs;
     public int gridSizeX = 4;
     public int gridSizeY = 4;
     public int numberOfRooms = 20;
@@ -53,7 +54,29 @@ public class LevelBuilder : MonoBehaviour
                 }
 
                 var roomPosition = new Vector2(i * roomHeight, j * roomWidth);
-                roomInstances[i][j] = Instantiate(roomPrefabs[rooms[i][j].GetRoomNumber()], roomPosition, Quaternion.identity);
+                var convenientPrefabs = roomPrefabs.Where(_ =>
+                {
+                    var roomScript = _.GetComponent<RoomScript>();
+                    var isConvenint = true;
+                    var roomBitArray = rooms[i][j].GetBitArray();
+                    var prefabBitArray = roomScript.GetBitArray();
+
+                    for(int k = 0; k < roomBitArray.Count; k++)
+                    {
+                        if (!(prefabBitArray[k] || !roomBitArray[k]))
+                        {
+                            isConvenint = false;
+                            break;
+                        }
+                    }
+
+                    return isConvenint;
+                }).ToList();
+
+                var randomPrefab = convenientPrefabs[Random.Range(0, convenientPrefabs.Count())];
+                roomInstances[i][j] = Instantiate(randomPrefab, roomPosition, Quaternion.identity);
+                var instanceRoomScript = roomInstances[i][j].GetComponent<RoomScript>();
+                instanceRoomScript.ApplyRoomType(rooms[i][j].GetRoomNumber());
             }
         }
     }
