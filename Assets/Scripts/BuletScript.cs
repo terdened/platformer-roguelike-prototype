@@ -30,4 +30,10 @@ public class BuletScript : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //Debug.Log(other);
+        Destroy(gameObject);
+    }
 }
