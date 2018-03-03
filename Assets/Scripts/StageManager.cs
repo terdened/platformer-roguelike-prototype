@@ -10,6 +10,7 @@ public class StageManager : MonoBehaviour {
     public GameObject levelBuilderPrefab;
     public int roomWidth = 18;
     public int roomHeight = 10;
+    public List<GameObject> enemyPrefabs;
     private GameObject[][] roomInstances;
     private MinimapScript miniMap;
 

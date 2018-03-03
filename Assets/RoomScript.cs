@@ -6,16 +6,18 @@ using UnityEngine;
 public class RoomScript : MonoBehaviour {
     public bool isClear;
     public bool isRewardSpawned;
+    public bool isEnemySpawned;
     public List<GameObject> enemies;
     public int type;
 
 	// Use this for initialization
 	void Start () {
         isClear = false;
+        enemies = new List<GameObject>();
     }
 	
-	// Update is called once per frame
-	void Update () {
+	public void UpdateRoom () {
+        enemies.RemoveAll(_ => _ == null);
         if (!isClear && enemies.Count == 0)
             isClear = true;
 	}

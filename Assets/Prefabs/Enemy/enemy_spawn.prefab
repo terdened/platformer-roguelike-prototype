@@ -9,53 +9,46 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1254860376434224}
+  m_RootGameObject: {fileID: 1302515003005590}
   m_IsPrefabParent: 1
---- !u!1 &1254860376434224
+--- !u!1 &1302515003005590
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4417917548017650}
-  - component: {fileID: 114183177196490586}
+  - component: {fileID: 4256070112353664}
+  - component: {fileID: 114163747591855740}
   m_Layer: 0
-  m_Name: stage_manager
+  m_Name: enemy_spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4417917548017650
+--- !u!4 &4256070112353664
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1254860376434224}
+  m_GameObject: {fileID: 1302515003005590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.789943, y: 1.4546771, z: -0.00390625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114183177196490586
+--- !u!114 &114163747591855740
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1254860376434224}
+  m_GameObject: {fileID: 1302515003005590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38713ede2a391b44b9665005deb3f2f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a544989e4310324685cebd14a6a0140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPosition: {x: 0, y: 0}
-  camera: {fileID: 0}
-  player: {fileID: 0}
-  levelBuilderPrefab: {fileID: 0}
-  roomWidth: 18
-  roomHeight: 10
-  enemyPrefabs:
-  - {fileID: 1003567466666716, guid: 875d780a63eaf56469a08872659640af, type: 2}
+  enemyTags: []

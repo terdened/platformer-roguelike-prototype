@@ -33,7 +33,9 @@ public class BuletScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log(other);
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+            other.gameObject.GetComponent<BaseEnemy>().MakeDamage(damage);
+        
         Destroy(gameObject);
     }
 }

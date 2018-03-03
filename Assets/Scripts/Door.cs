@@ -8,7 +8,7 @@ public class Door : MonoBehaviour {
     public bool IsUp;
     public bool IsDown;
 
-    private bool IsOpen = true;
+    public bool IsOpen = true;
     private bool IsActive = false;
 
     // Use this for initialization
