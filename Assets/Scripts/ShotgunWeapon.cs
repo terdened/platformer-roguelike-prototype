@@ -8,7 +8,8 @@ public class ShotgunWeapon : BaseWeapon {
 
     protected override void Fire()
     {
-        for(int i = 0; i < buletCount; i++)
+        float originalDamage = DamageK;
+        for (int i = 0; i < buletCount; i++)
         {
             var direction = new Vector3();
             direction.x = Mathf.Abs(Input.GetAxis("HorizontalRight")) > 0.4f ? Input.GetAxis("HorizontalRight") > 0 ? 1 : -1 : 0;
@@ -16,7 +17,9 @@ public class ShotgunWeapon : BaseWeapon {
 
             direction = Quaternion.Euler(0, 0, Random.Range(-15, 15)) * direction;
 
+            DamageK *= Random.Range(0.6f, 1.4f);
             InitBulet(direction);
+            DamageK = originalDamage;
         }
     }
 }

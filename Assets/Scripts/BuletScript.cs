@@ -21,6 +21,7 @@ public class BuletScript : MonoBehaviour {
         this.speed = speed;
         this.distance = distance;
         this.damage = damage;
+        transform.localScale = new Vector3(damage, damage, 1);
     }
 	
 	// Update is called once per frame
