@@ -176,10 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82b177d54d302c468d265c82f6c8937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect:
+  Effect:
     AdditionalFireRate: 0
     AdditionalDamage: 0
-    AdditionalBuletDistance: 2
+    AdditionalBuletDistance: 1
     AdditionalBuletSpeed: 0
     AdditionalJumpPower: 0
     AdditionalMoveSpeed: 0

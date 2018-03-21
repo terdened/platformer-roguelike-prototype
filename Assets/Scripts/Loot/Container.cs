@@ -7,11 +7,11 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public abstract class Container : MonoBehaviour
 {
-    private bool IsActive = false;
+    private bool isActive = false;
 
     void Update()
     {
-        if (IsActive && Input.GetButtonDown(PC2D.Input.INTERACT))
+        if (isActive && Input.GetButtonDown(PC2D.Input.INTERACT))
         {
             Take();
             Destroy(gameObject);
@@ -20,7 +20,7 @@ public abstract class Container : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        IsActive = true;
+        isActive = true;
         var spriteRenderer = GetComponent<SpriteRenderer>();
 
         spriteRenderer.color = Color.green;
@@ -28,7 +28,7 @@ public abstract class Container : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        IsActive = false;
+        isActive = false;
         var spriteRenderer = GetComponent<SpriteRenderer>();
 
         spriteRenderer.color = Color.white;

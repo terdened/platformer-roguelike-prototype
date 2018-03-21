@@ -3,34 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelGeneration : MonoBehaviour {
-	Vector2 worldSize;
-	Room[][] rooms;
-	List<Vector2> takenPositions;
-    int gridSizeX;
-    int gridSizeY;
-    int numberOfRooms;
-	public GameObject roomWhiteObj;
+    private Vector2 worldSize;
+    private Room[][] rooms;
+    private List<Vector2> takenPositions;
+    private int gridSizeX;
+    private int gridSizeY;
+    private int numberOfRooms;
 
     public LevelGeneration()
     {
         takenPositions = new List<Vector2>();
     }
 
-    public void Generate(Vector2 _worldSize, int _numberOfRooms)
+    public void Generate(Vector2 worldSize, int numberOfRooms)
     {
-        worldSize = _worldSize;
-        numberOfRooms = _numberOfRooms;
+        this.worldSize = worldSize;
+        this.numberOfRooms = numberOfRooms;
         takenPositions = new List<Vector2>();
 
         if (numberOfRooms >= (worldSize.x * 2) * (worldSize.y * 2))
-        { // make sure we dont try to make more rooms than can fit in our grid
+        { 
+            // make sure we dont try to make more rooms than can fit in our grid
             numberOfRooms = Mathf.RoundToInt((worldSize.x * 2) * (worldSize.y * 2));
         }
         gridSizeX = Mathf.RoundToInt(worldSize.x); //note: these are half-extents
         gridSizeY = Mathf.RoundToInt(worldSize.y);
         CreateRooms(); //lays out the actual map
         SetRoomDoors(); //assigns the doors where rooms would connect
-        //DrawMap(); //instantiates objects to make up a map
     }
 
 	void CreateRooms(){
@@ -151,29 +150,6 @@ public class LevelGeneration : MonoBehaviour {
 			ret++;
 		}
 		return ret;
-	}
-
-	void DrawMap(){
-        for(int i = 0; i < rooms.Length; i++)
-        {
-            for (int j = 0; j < rooms[i].Length; j++)
-            {
-                if (rooms[i][j] == null)
-                {
-                    continue; //skip where there is no room
-                }
-                Vector2 drawPos = rooms[i][j].gridPos;
-                drawPos.x *= 16;//aspect ratio of map sprite
-                drawPos.y *= 8;
-                //create map obj and assign its variables
-                MapSpriteSelector mapper = Object.Instantiate(roomWhiteObj, drawPos, Quaternion.identity).GetComponent<MapSpriteSelector>();
-                mapper.type = rooms[i][j].type;
-                mapper.up = rooms[i][j].doorTop;
-                mapper.down = rooms[i][j].doorBot;
-                mapper.right = rooms[i][j].doorRight;
-                mapper.left = rooms[i][j].doorLeft;
-            }
-        }
 	}
 
 	void SetRoomDoors(){

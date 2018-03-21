@@ -4,8 +4,8 @@ using System.Linq;
 using UnityEngine;
 
 public class RoomManager : MonoBehaviour {
-    public GameObject currentRoom;
-    public List<GameObject> rewards;
+    public GameObject CurrentRoom;
+    public List<GameObject> Rewards;
 
     // Use this for initialization
     void Start () {
@@ -14,13 +14,13 @@ public class RoomManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(currentRoom != null)
+	    if(CurrentRoom != null)
         {
-            var roomScript = currentRoom.GetComponent<RoomScript>();
+            var roomScript = CurrentRoom.GetComponent<RoomScript>();
 
             if(!roomScript.isEnemySpawned)
             {
-                currentRoom.GetComponentsInChildren<EnemySpawn>().ToList().ForEach(_ => _.Spawn());
+                CurrentRoom.GetComponentsInChildren<EnemySpawn>().ToList().ForEach(_ => _.Spawn());
                 roomScript.isEnemySpawned = true;
             }
 
@@ -28,12 +28,12 @@ public class RoomManager : MonoBehaviour {
 
             if (!roomScript.isRewardSpawned && roomScript.isClear)
             {
-                var rewardIndex = Random.Range(0, rewards.Count);
-                Instantiate(rewards[rewardIndex], currentRoom.transform.position + new Vector3(-3, -9f, 0), Quaternion.identity);
+                var rewardIndex = Random.Range(0, Rewards.Count);
+                Instantiate(Rewards[rewardIndex], CurrentRoom.transform.position + new Vector3(-3, -9f, 0), Quaternion.identity);
                 roomScript.isRewardSpawned = true;
             }
 
-            currentRoom.GetComponentsInChildren<Door>().ToList().ForEach(_ => _.IsOpen = roomScript.isClear);
+            CurrentRoom.GetComponentsInChildren<Door>().ToList().ForEach(_ => _.IsOpen = roomScript.isClear);
         }
 	}
 }

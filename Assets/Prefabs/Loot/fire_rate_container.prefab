@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82b177d54d302c468d265c82f6c8937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect:
-    AdditionalFireRate: -0.05
+  Effect:
+    AdditionalFireRate: -0.1
     AdditionalDamage: 0
     AdditionalBuletDistance: 0
     AdditionalBuletSpeed: 0

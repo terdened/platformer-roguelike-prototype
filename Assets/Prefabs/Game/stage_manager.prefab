@@ -51,11 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38713ede2a391b44b9665005deb3f2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPosition: {x: 0, y: 0}
-  camera: {fileID: 0}
-  player: {fileID: 0}
-  levelBuilderPrefab: {fileID: 0}
-  roomWidth: 18
-  roomHeight: 10
-  enemyPrefabs:
+  CurrentPosition: {x: 0, y: 0}
+  Camera: {fileID: 0}
+  Player: {fileID: 0}
+  LevelBuilderPrefab: {fileID: 0}
+  EnemyPrefabs:
   - {fileID: 1003567466666716, guid: 875d780a63eaf56469a08872659640af, type: 2}

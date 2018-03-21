@@ -51,11 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b9c26b80ad1074a9a3e6ebff58ef9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentRoom: {fileID: 0}
-  rewards:
-  - {fileID: 1387595195160954, guid: d6c720acb16d0f84b9958d0f750d439c, type: 2}
-  - {fileID: 1001013955138282, guid: 6022393e195d6dd4292781297e65cd0d, type: 2}
+  CurrentRoom: {fileID: 0}
+  Rewards:
   - {fileID: 1318996650600902, guid: 4306fd066c4e71c48b7e087b66762c67, type: 2}
   - {fileID: 1337747867200202, guid: 9d12fb318980b6f42bd3a2daea342029, type: 2}
   - {fileID: 1700323300521486, guid: 251722f725b4b9549b1e1f432954eb92, type: 2}
   - {fileID: 1631122657755468, guid: 62fcf97b44ea8fa4bacea4a04d49b63a, type: 2}
+  - {fileID: 1387595195160954, guid: d6c720acb16d0f84b9958d0f750d439c, type: 2}
+  - {fileID: 1001013955138282, guid: 6022393e195d6dd4292781297e65cd0d, type: 2}

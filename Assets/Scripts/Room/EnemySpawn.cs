@@ -13,7 +13,7 @@ public class EnemySpawn : MonoBehaviour {
 	
 	public void Spawn()
     {
-        var enemyPrefab = stageManager.enemyPrefabs[Random.Range(0, stageManager.enemyPrefabs.Count)];
+        var enemyPrefab = stageManager.EnemyPrefabs[Random.Range(0, stageManager.EnemyPrefabs.Count)];
         var enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 
         var room = transform.parent.GetComponent<RoomScript>();

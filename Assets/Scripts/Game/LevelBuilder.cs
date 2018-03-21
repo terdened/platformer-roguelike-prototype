@@ -1,19 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class LevelBuilder : MonoBehaviour
 {
-    public List<GameObject> roomPrefabs;
-    public int gridSizeX = 4;
-    public int gridSizeY = 4;
-    public int numberOfRooms = 20;
-    public int roomWidth = 18;
-    public int roomHeight = 10;
-    public GameObject camera;
-    private Room[][] rooms;
+    public List<GameObject> RoomPrefabs;
+    public int GridSizeX = 4;
+    public int GridSizeY = 4;
+    public int NumberOfRooms = 20;
 
+    private int roomWidth = 10;
+    private int roomHeight = 18;
+    private Room[][] rooms;
     private LevelGeneration levelGenerator = new LevelGeneration();
     private GameObject[][] roomInstances;
 
@@ -22,10 +20,6 @@ public class LevelBuilder : MonoBehaviour
         {
             return roomInstances;
         }
-    }
-
-    void Start () {
-        //Generate();
     }
 
     public Room[][] Rooms
@@ -38,15 +32,15 @@ public class LevelBuilder : MonoBehaviour
 
     public void Generate()
     {
-        levelGenerator.Generate(new Vector2(gridSizeX, gridSizeY), numberOfRooms);
+        levelGenerator.Generate(new Vector2(GridSizeX, GridSizeY), NumberOfRooms);
         rooms = levelGenerator.GetRooms();
 
-        roomInstances = new GameObject[gridSizeY * 2][];
+        roomInstances = new GameObject[GridSizeY * 2][];
 
-        for (int i = 0; i < gridSizeX * 2; i++)
+        for (int i = 0; i < GridSizeX * 2; i++)
         {
-            roomInstances[i] = new GameObject[gridSizeX * 2];
-            for (int j = 0; j < gridSizeY * 2; j++)
+            roomInstances[i] = new GameObject[GridSizeX * 2];
+            for (int j = 0; j < GridSizeY * 2; j++)
             {
                 if (rooms[i][j] == null)
                 {
@@ -54,7 +48,7 @@ public class LevelBuilder : MonoBehaviour
                 }
 
                 var roomPosition = new Vector2(i * roomHeight, j * roomWidth);
-                var convenientPrefabs = roomPrefabs.Where(_ =>
+                var convenientPrefabs = RoomPrefabs.Where(_ =>
                 {
                     var roomScript = _.GetComponent<RoomScript>();
                     var isConvenint = true;

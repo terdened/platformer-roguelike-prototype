@@ -51,26 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2926b822ba76e4468ce70d64a111f2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomPrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  RoomPrefabs:
+  - {fileID: 1843074944263420, guid: 4be2f5d6b7e08d2438d7693bd8b97241, type: 2}
+  - {fileID: 1043986832167056, guid: f9d58b8c12bbe03478fca65ca4df4b8f, type: 2}
+  - {fileID: 1800737880138658, guid: b76a3cb4122493b46aa43cd1d031602b, type: 2}
   - {fileID: 1325784767713440, guid: d05d2eba15c6d704d954ab7d0a361949, type: 2}
-  gridSizeX: 4
-  gridSizeY: 4
-  numberOfRooms: 20
-  roomWidth: 10
-  roomHeight: 18
-  camera: {fileID: 0}
+  GridSizeX: 4
+  GridSizeY: 4
+  NumberOfRooms: 20

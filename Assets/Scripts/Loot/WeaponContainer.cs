@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class WeaponContainer : Container
 {
-    public GameObject weaponPrefab;
-    public GameObject pistolContainerPrefab;
-    public GameObject shotgunContainerPrefab;
+    public GameObject WeaponPrefab;
+    public GameObject PistolContainerPrefab;
+    public GameObject ShotgunContainerPrefab;
 
     public override void Take()
     {
@@ -20,11 +20,11 @@ public class WeaponContainer : Container
             {            
                 if(baseWeapon.GetType() == typeof(PistolWeapon))
                 {
-                    Instantiate(pistolContainerPrefab, transform.position, Quaternion.identity);
+                    Instantiate(PistolContainerPrefab, transform.position, Quaternion.identity);
                 }
                 else if (baseWeapon.GetType() == typeof(ShotgunWeapon))
                 {
-                    Instantiate(shotgunContainerPrefab, transform.position, Quaternion.identity);
+                    Instantiate(ShotgunContainerPrefab, transform.position, Quaternion.identity);
                 }
 
                 baseWeapon.Destroy();
@@ -32,7 +32,7 @@ public class WeaponContainer : Container
             }
         }
 
-        var newWeapon = Instantiate(weaponPrefab, player.transform.position, Quaternion.identity);
+        var newWeapon = Instantiate(WeaponPrefab, player.transform.position, Quaternion.identity);
         newWeapon.transform.parent = player.transform;
     }
 

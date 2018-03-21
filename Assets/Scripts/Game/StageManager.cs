@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour {
-    public Vector2 currentPosition;
-    public GameObject camera;
-    public GameObject player;
-    public GameObject levelBuilderPrefab;
-    public int roomWidth = 18;
-    public int roomHeight = 10;
-    public List<GameObject> enemyPrefabs;
+    public Vector2 CurrentPosition;
+    public GameObject Camera;
+    public GameObject Player;
+    public GameObject LevelBuilderPrefab;
+    public List<GameObject> EnemyPrefabs;
+    
+    private int roomWidth = 18;
+    private int roomHeight = 10;
     private GameObject[][] roomInstances;
     private MinimapScript miniMap;
 
     // Use this for initialization
     void Start () {
-        var levelBuilder = levelBuilderPrefab.GetComponent<LevelBuilder>();
+        var levelBuilder = LevelBuilderPrefab.GetComponent<LevelBuilder>();
         miniMap = GameObject.Find("mini_map").GetComponent<MinimapScript>();
 
         levelBuilder.Generate();
@@ -25,55 +26,55 @@ public class StageManager : MonoBehaviour {
         miniMap.SetRooms(levelBuilder.Rooms);
 
         SetCurrentPosition(new Vector2(4, 4));
-        player.transform.position = new Vector3(roomWidth * currentPosition.x, roomHeight * currentPosition.y - 2, player.transform.position.z);
+        Player.transform.position = new Vector3(roomWidth * CurrentPosition.x, roomHeight * CurrentPosition.y - 2, Player.transform.position.z);
     }
 
     public void MoveRight()
     {
-        var newPosition = this.currentPosition;
+        var newPosition = this.CurrentPosition;
         newPosition.x++;
 
         SetCurrentPosition(newPosition);
-        player.transform.position = new Vector3(roomWidth * currentPosition.x - 7.5f, roomHeight * currentPosition.y - 8.5f, player.transform.position.z);
+        Player.transform.position = new Vector3(roomWidth * CurrentPosition.x - 7.5f, roomHeight * CurrentPosition.y - 8.5f, Player.transform.position.z);
     }
 
     public void MoveLeft()
     {
-        var newPosition = this.currentPosition;
+        var newPosition = this.CurrentPosition;
         newPosition.x--;
 
         SetCurrentPosition(newPosition);
-        player.transform.position = new Vector3(roomWidth * currentPosition.x + 7.5f, roomHeight * currentPosition.y - 8.5f, player.transform.position.z);
+        Player.transform.position = new Vector3(roomWidth * CurrentPosition.x + 7.5f, roomHeight * CurrentPosition.y - 8.5f, Player.transform.position.z);
     }
 
     public void MoveUp()
     {
-        var newPosition = this.currentPosition;
+        var newPosition = this.CurrentPosition;
         newPosition.y++;
 
         SetCurrentPosition(newPosition);
-        player.transform.position = new Vector3(roomWidth * currentPosition.x, roomHeight * currentPosition.y - 8.5f, player.transform.position.z);
+        Player.transform.position = new Vector3(roomWidth * CurrentPosition.x, roomHeight * CurrentPosition.y - 8.5f, Player.transform.position.z);
     }
 
     public void MoveDown()
     {
-        var newPosition = this.currentPosition;
+        var newPosition = this.CurrentPosition;
         newPosition.y--;
 
         SetCurrentPosition(newPosition);
-        player.transform.position = new Vector3(roomWidth * currentPosition.x, roomHeight * currentPosition.y - 2f, player.transform.position.z);
+        Player.transform.position = new Vector3(roomWidth * CurrentPosition.x, roomHeight * CurrentPosition.y - 2f, Player.transform.position.z);
     }
 
     public void SetCurrentPosition(Vector2 newPosition)
     {
-        currentPosition = newPosition;
-        miniMap.SetCurrentRoom(currentPosition);
+        CurrentPosition = newPosition;
+        miniMap.SetCurrentRoom(CurrentPosition);
 
-        var roomCamera = camera.GetComponent<RoomCamera>();
-        roomCamera.SetCurrnetRoom(new Vector2(currentPosition.x, currentPosition.y));
+        var roomCamera = Camera.GetComponent<RoomCamera>();
+        roomCamera.SetCurrnetRoom(new Vector2(CurrentPosition.x, CurrentPosition.y));
 
 
         var roomManager = GameObject.Find("room_manager").GetComponent<RoomManager>();
-        roomManager.currentRoom = roomInstances[Mathf.RoundToInt(newPosition.x)][Mathf.RoundToInt(newPosition.y)];
+        roomManager.CurrentRoom = roomInstances[Mathf.RoundToInt(newPosition.x)][Mathf.RoundToInt(newPosition.y)];
     }
 }
