@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4744c77653be0ae408a5a7c863d96f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buletPrefab: {fileID: 1892694555066748, guid: 6a9275593ac1bb24a88b6c548ec074f4,
+  BuletPrefab: {fileID: 1892694555066748, guid: 6a9275593ac1bb24a88b6c548ec074f4,
     type: 2}
   FireRateK: 1
   DamageK: 1

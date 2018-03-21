@@ -4,29 +4,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomScript : MonoBehaviour {
-    public bool isClear;
-    public bool isRewardSpawned;
-    public bool isEnemySpawned;
-    public List<GameObject> enemies;
-    public int type;
+    public bool IsClear;
+    public bool IsRewardSpawned;
+    public bool IsEnemySpawned;
+    public List<GameObject> Enemies;
+    public int Type;
 
 	// Use this for initialization
 	void Start () {
-        isClear = false;
-        enemies = new List<GameObject>();
+        IsClear = false;
+        Enemies = new List<GameObject>();
     }
 	
 	public void UpdateRoom () {
-        enemies.RemoveAll(_ => _ == null);
-        if (!isClear && enemies.Count == 0)
-            isClear = true;
+        Enemies.RemoveAll(_ => _ == null);
+        if (!IsClear && Enemies.Count == 0)
+            IsClear = true;
 	}
 
     public List<bool> GetBitArray()
     {
         var result = new List<bool>();
         
-        string binary = Convert.ToString(type, 2);
+        string binary = Convert.ToString(Type, 2);
 
         while (binary.Length < 4)
             binary = "0" + binary;

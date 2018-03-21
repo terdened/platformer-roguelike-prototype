@@ -5,52 +5,52 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour {
-    public Text dmgText;
-    public Text frText;
-    public Text bsText;
-    public Text bdText;
+    public Text DmgText;
+    public Text FrText;
+    public Text BsText;
+    public Text BdText;
+    
+    public List<StatEffect> Effects;
 
     // Fire
-    private float InitialFireRate = 0.4f; // 1 = 1 bulet/sec, 0.5 = 2 bulet/sec
-    private float InitialDamage = 1f;
-    private float InitialBuletDistance = 8f;
-    private float InitialBuletSpeed = 10f;
+    private float initialFireRate = 0.4f; // 1 = 1 bulet/sec, 0.5 = 2 bulet/sec
+    private float initialDamage = 1f;
+    private float initialBuletDistance = 8f;
+    private float initialBuletSpeed = 10f;
 
     // Movement
-    private float InitialJumpPower;
-    private float InitialMoveSpeed;
-
-    public List<StatEffect> effects;
+    private float initialJumpPower;
+    private float initialMoveSpeed;
 
     public float GetFireRate()
     {
-        var result = InitialFireRate + effects.Sum(_ => _.AdditionalFireRate);
+        var result = initialFireRate + Effects.Sum(_ => _.AdditionalFireRate);
         return result > 0.1f ? result : 0.1f;
     }
 
     public float GetDamage()
     {
-        return InitialDamage + effects.Sum(_ => _.AdditionalDamage);
+        return initialDamage + Effects.Sum(_ => _.AdditionalDamage);
     }
 
     public float GetBuletDistance()
     {
-        return InitialBuletDistance + effects.Sum(_ => _.AdditionalBuletDistance);
+        return initialBuletDistance + Effects.Sum(_ => _.AdditionalBuletDistance);
     }
 
     public float GetBuletSpeed()
     {
-        return InitialBuletSpeed + effects.Sum(_ => _.AdditionalBuletSpeed);
+        return initialBuletSpeed + Effects.Sum(_ => _.AdditionalBuletSpeed);
     }
 
     public float GetJumpPower()
     {
-        return InitialJumpPower + effects.Sum(_ => _.AdditionalJumpPower);
+        return initialJumpPower + Effects.Sum(_ => _.AdditionalJumpPower);
     }
 
     public float GetMoveSpeed()
     {
-        return InitialMoveSpeed + effects.Sum(_ => _.AdditionalMoveSpeed);
+        return initialMoveSpeed + Effects.Sum(_ => _.AdditionalMoveSpeed);
     }
 
     void Update()
@@ -71,10 +71,10 @@ public class PlayerStats : MonoBehaviour {
 
         if(weapon != null)
         {
-            dmgText.text = (GetDamage() * weapon.DamageK).ToString();
-            frText.text = (GetFireRate() * weapon.FireRateK).ToString();
-            bsText.text = (GetBuletSpeed() * weapon.BuletSpeedK).ToString();
-            bdText.text = (GetBuletDistance() * weapon.BuletDistanceK).ToString();
+            DmgText.text = (GetDamage() * weapon.DamageK).ToString();
+            FrText.text = (GetFireRate() * weapon.FireRateK).ToString();
+            BsText.text = (GetBuletSpeed() * weapon.BuletSpeedK).ToString();
+            BdText.text = (GetBuletDistance() * weapon.BuletDistanceK).ToString();
         }
     }
 }

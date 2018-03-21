@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour {
+    public List<string> EnemyTags;
+
     private StageManager stageManager;
-    public List<string> enemyTags;
-	
+
     // Use this for initialization
-	void Start () {
+    void Start () {
         stageManager = GameObject.Find("stage_manager").GetComponent<StageManager>();
     }
 	
@@ -17,6 +18,6 @@ public class EnemySpawn : MonoBehaviour {
         var enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 
         var room = transform.parent.GetComponent<RoomScript>();
-        room.enemies.Add(enemy);
+        room.Enemies.Add(enemy);
     }
 }

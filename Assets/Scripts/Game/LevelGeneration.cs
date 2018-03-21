@@ -160,24 +160,24 @@ public class LevelGeneration : MonoBehaviour {
 				}
 				Vector2 gridPosition = new Vector2(x,y);
 				if (y - 1 < 0){ //check above
-                    rooms[x][y].doorBot = false;
+                    rooms[x][y].DoorBot = false;
 				}else{
-                    rooms[x][y].doorBot = (rooms[x][y-1] != null);
+                    rooms[x][y].DoorBot = (rooms[x][y-1] != null);
 				}
 				if (y + 1 >= gridSizeY * 2){ //check bellow
-                    rooms[x][y].doorTop = false;
+                    rooms[x][y].DoorTop = false;
 				}else{
-                    rooms[x][y].doorTop = (rooms[x][y+1] != null);
+                    rooms[x][y].DoorTop = (rooms[x][y+1] != null);
 				}
 				if (x - 1 < 0){ //check left
-                    rooms[x][y].doorLeft = false;
+                    rooms[x][y].DoorLeft = false;
 				}else{
-                    rooms[x][y].doorLeft = (rooms[x-1][y] != null);
+                    rooms[x][y].DoorLeft = (rooms[x-1][y] != null);
 				}
 				if (x + 1 >= gridSizeX * 2){ //check right
-                    rooms[x][y].doorRight = false;
+                    rooms[x][y].DoorRight = false;
 				}else{
-                    rooms[x][y].doorRight = (rooms[x+1][y] != null);
+                    rooms[x][y].DoorRight = (rooms[x+1][y] != null);
 				}
 			}
 		}

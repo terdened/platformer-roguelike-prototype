@@ -9,6 +9,6 @@ public class StatsContainer : Container {
     public override void Take()
     {
         var playerStats = GameObject.Find("player_stats").GetComponent<PlayerStats>();
-        playerStats.effects.Add(Effect);
+        playerStats.Effects.Add(Effect);
     }
 }

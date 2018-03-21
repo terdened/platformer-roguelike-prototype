@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a544989e4310324685cebd14a6a0140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTags: []
+  EnemyTags: []
 --- !u!114 &114197782997178038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1574,6 +1574,7 @@ MonoBehaviour:
   IsLeft: 1
   IsUp: 0
   IsDown: 0
+  IsOpen: 1
 --- !u!114 &114649328816520514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1611,6 +1612,7 @@ MonoBehaviour:
   IsLeft: 0
   IsUp: 0
   IsDown: 0
+  IsOpen: 1
 --- !u!114 &114704599595491894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1626,6 +1628,7 @@ MonoBehaviour:
   IsLeft: 0
   IsUp: 1
   IsDown: 0
+  IsOpen: 1
 --- !u!114 &114740770915806630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1662,11 +1665,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b840412e9bf5904caa88268dc739126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isClear: 0
-  isRewardSpawned: 0
-  isEnemySpawned: 0
-  enemies: []
-  type: 15
+  IsClear: 0
+  IsRewardSpawned: 0
+  IsEnemySpawned: 0
+  Enemies: []
+  Type: 15
 --- !u!114 &114844338246320276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1724,6 +1727,7 @@ MonoBehaviour:
   IsLeft: 0
   IsUp: 0
   IsDown: 1
+  IsOpen: 1
 --- !u!212 &212087593608109076
 SpriteRenderer:
   m_ObjectHideFlags: 1

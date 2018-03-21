@@ -7,18 +7,18 @@ public class Door : MonoBehaviour {
     public bool IsLeft;
     public bool IsUp;
     public bool IsDown;
+    public bool IsOpen;
 
-    public bool IsOpen = true;
-    private bool IsActive = false;
+    private bool isActive = false;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        IsOpen = true;
+    }
 
     void Update()
     {
-        if (IsActive && IsOpen && Input.GetButtonDown(PC2D.Input.INTERACT))
+        if (isActive && IsOpen && Input.GetButtonDown(PC2D.Input.INTERACT))
         {
             var roomManager = GameObject.Find("stage_manager").GetComponent<StageManager>();
 
@@ -34,7 +34,7 @@ public class Door : MonoBehaviour {
             if (IsDown)
                 roomManager.MoveDown();
 
-            IsActive = false;
+            isActive = false;
             var spriteRenderer = GetComponent<SpriteRenderer>();
 
             spriteRenderer.color = Color.white;
@@ -43,7 +43,7 @@ public class Door : MonoBehaviour {
     
     void OnTriggerEnter2D(Collider2D other)
     {
-        IsActive = true;
+        isActive = true;
         var spriteRenderer = GetComponent<SpriteRenderer>();
         
         spriteRenderer.color = IsOpen ? Color.green : Color.red;
@@ -51,7 +51,7 @@ public class Door : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        IsActive = false;
+        isActive = false;
         var spriteRenderer = GetComponent<SpriteRenderer>();
 
         spriteRenderer.color = Color.white;

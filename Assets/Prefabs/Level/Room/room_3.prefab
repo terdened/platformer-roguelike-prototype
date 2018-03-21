@@ -1552,11 +1552,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b840412e9bf5904caa88268dc739126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isClear: 0
-  isRewardSpawned: 0
-  isEnemySpawned: 0
-  enemies: []
-  type: 15
+  IsClear: 0
+  IsRewardSpawned: 0
+  IsEnemySpawned: 0
+  Enemies: []
+  Type: 15
 --- !u!114 &114191906684869334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1650,7 +1650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a544989e4310324685cebd14a6a0140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTags: []
+  EnemyTags: []
 --- !u!114 &114592392244397904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1753,7 +1753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a544989e4310324685cebd14a6a0140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTags: []
+  EnemyTags: []
 --- !u!114 &114970012379988312
 MonoBehaviour:
   m_ObjectHideFlags: 1

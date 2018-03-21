@@ -18,22 +18,22 @@ public class RoomManager : MonoBehaviour {
         {
             var roomScript = CurrentRoom.GetComponent<RoomScript>();
 
-            if(!roomScript.isEnemySpawned)
+            if(!roomScript.IsEnemySpawned)
             {
                 CurrentRoom.GetComponentsInChildren<EnemySpawn>().ToList().ForEach(_ => _.Spawn());
-                roomScript.isEnemySpawned = true;
+                roomScript.IsEnemySpawned = true;
             }
 
             roomScript.UpdateRoom();
 
-            if (!roomScript.isRewardSpawned && roomScript.isClear)
+            if (!roomScript.IsRewardSpawned && roomScript.IsClear)
             {
                 var rewardIndex = Random.Range(0, Rewards.Count);
                 Instantiate(Rewards[rewardIndex], CurrentRoom.transform.position + new Vector3(-3, -9f, 0), Quaternion.identity);
-                roomScript.isRewardSpawned = true;
+                roomScript.IsRewardSpawned = true;
             }
 
-            CurrentRoom.GetComponentsInChildren<Door>().ToList().ForEach(_ => _.IsOpen = roomScript.isClear);
+            CurrentRoom.GetComponentsInChildren<Door>().ToList().ForEach(_ => _.IsOpen = roomScript.IsClear);
         }
 	}
 }

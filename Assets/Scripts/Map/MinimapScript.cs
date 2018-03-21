@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MinimapScript : MonoBehaviour {
-    public GameObject roomPrfab;
+    public GameObject RoomPrfab;
+
     private Room[][] rooms;
     private Vector2 currentRoom;
     private GameObject[][] roomInstances;
@@ -25,9 +26,9 @@ public class MinimapScript : MonoBehaviour {
 
                 var mapper = rooms[i][j];
                 if (i == this.currentRoom.x && j == this.currentRoom.y)
-                    mapper.type = 1;
+                    mapper.Type = 1;
                 else
-                    mapper.type = 0;
+                    mapper.Type = 0;
             }   
         }
 
@@ -61,21 +62,21 @@ public class MinimapScript : MonoBehaviour {
                 if (rooms[i][j] == null)
                     continue; //skip where there is no room
 
-                Vector2 drawPos = rooms[i][j].gridPos;
+                Vector2 drawPos = rooms[i][j].GridPos;
                 drawPos.x *= 0.8f;//aspect ratio of map sprite
                 drawPos.y *= 0.4f;
                 drawPos.x += 5.75f + gameObject.transform.position.x;
                 drawPos.y += 3.3f + gameObject.transform.position.y;
 
                 //create map obj and assign its variables
-                var roomInstance = Instantiate(roomPrfab, drawPos, Quaternion.identity);
+                var roomInstance = Instantiate(RoomPrfab, drawPos, Quaternion.identity);
                 MapSpriteSelector mapper = roomInstance.GetComponent<MapSpriteSelector>();
                 mapper.transform.parent = gameObject.transform;
-                mapper.type = rooms[i][j].type;
-                mapper.up = rooms[i][j].doorTop;
-                mapper.down = rooms[i][j].doorBot;
-                mapper.right = rooms[i][j].doorRight;
-                mapper.left = rooms[i][j].doorLeft;
+                mapper.type = rooms[i][j].Type;
+                mapper.up = rooms[i][j].DoorTop;
+                mapper.down = rooms[i][j].DoorBot;
+                mapper.right = rooms[i][j].DoorRight;
+                mapper.left = rooms[i][j].DoorLeft;
                 roomInstances[i][j] = roomInstance;
             }
         }

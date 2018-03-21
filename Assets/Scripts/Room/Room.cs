@@ -1,31 +1,34 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Room {
-	public Vector2 gridPos;
-	public int type;
-	public bool doorTop, doorBot, doorLeft, doorRight;
-	public Room(Vector2 _gridPos, int _type){
-		gridPos = _gridPos;
-		type = _type;
+	public Vector2 GridPos;
+	public int Type;
+	public bool DoorTop;
+    public bool DoorBot;
+    public bool DoorLeft;
+    public bool DoorRight;
+
+    public Room(Vector2 gridPos, int type){
+        GridPos = gridPos;
+        Type = type;
 	}
 
     public int GetRoomNumber()
     {
         int binaryResult = 0;
 
-        if (doorTop)
+        if (DoorTop)
             binaryResult += 1;
         
-        if (doorRight)
+        if (DoorRight)
             binaryResult += 10;
         
-        if (doorBot)
+        if (DoorBot)
             binaryResult += 100;
         
-        if (doorLeft)
+        if (DoorLeft)
             binaryResult += 1000;
 
         return Convert.ToInt32(binaryResult.ToString(), 2);
@@ -35,10 +38,10 @@ public class Room {
     {
         var result = new List<bool>();
 
-        result.Add(doorLeft);
-        result.Add(doorBot);
-        result.Add(doorRight);
-        result.Add(doorTop);
+        result.Add(DoorLeft);
+        result.Add(DoorBot);
+        result.Add(DoorRight);
+        result.Add(DoorTop);
 
         return result;
     }

@@ -176,11 +176,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2dcfd47f2e888b44976ead0b553e9ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 1279425656516614, guid: 92d13fb6e5500bf418d24eeafc037b0a,
+  WeaponPrefab: {fileID: 1279425656516614, guid: 92d13fb6e5500bf418d24eeafc037b0a,
     type: 2}
-  pistolContainerPrefab: {fileID: 1387595195160954, guid: d6c720acb16d0f84b9958d0f750d439c,
+  PistolContainerPrefab: {fileID: 1387595195160954, guid: d6c720acb16d0f84b9958d0f750d439c,
     type: 2}
-  shotgunContainerPrefab: {fileID: 1001013955138282}
+  ShotgunContainerPrefab: {fileID: 1001013955138282}
 --- !u!212 &212712696712853368
 SpriteRenderer:
   m_ObjectHideFlags: 1

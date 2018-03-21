@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public abstract class BaseWeapon : MonoBehaviour {
-    public GameObject buletPrefab;
+    public GameObject BuletPrefab;
     public float FireRateK;
     public float DamageK;
     public float BuletDistanceK;
     public float BuletSpeedK;
+
     private float fireTimer = 0;
     private PlayerStats playerStats;
 
@@ -20,7 +19,7 @@ public abstract class BaseWeapon : MonoBehaviour {
 
     protected void InitBulet(Vector3 direction)
     {
-        var buletInstance = Instantiate(buletPrefab, transform.parent.transform.position, Quaternion.identity);
+        var buletInstance = Instantiate(BuletPrefab, transform.parent.transform.position, Quaternion.identity);
         var buletScript = buletInstance.GetComponent<BuletScript>();
         buletScript.Init(direction, playerStats.GetBuletSpeed() * BuletSpeedK, playerStats.GetBuletDistance() * BuletDistanceK, playerStats.GetDamage() * DamageK);
     }

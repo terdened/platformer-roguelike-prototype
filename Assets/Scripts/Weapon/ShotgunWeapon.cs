@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShotgunWeapon : BaseWeapon {
-
-    public int buletCount;
+    public int BuletCount;
 
     protected override void Fire()
     {
         float originalDamage = DamageK;
-        for (int i = 0; i < buletCount; i++)
+        for (int i = 0; i < BuletCount; i++)
         {
             var direction = new Vector3();
             direction.x = Mathf.Abs(Input.GetAxis("HorizontalRight")) > 0.4f ? Input.GetAxis("HorizontalRight") > 0 ? 1 : -1 : 0;

@@ -218,22 +218,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114047248079859464, guid: 7754ffc4c41eb4e40910c1ca49a37a09,
         type: 2}
-      propertyPath: dmgText
+      propertyPath: DmgText
       value: 
       objectReference: {fileID: 819587419}
     - target: {fileID: 114047248079859464, guid: 7754ffc4c41eb4e40910c1ca49a37a09,
         type: 2}
-      propertyPath: frText
+      propertyPath: FrText
       value: 
       objectReference: {fileID: 1491027017}
     - target: {fileID: 114047248079859464, guid: 7754ffc4c41eb4e40910c1ca49a37a09,
         type: 2}
-      propertyPath: bsText
+      propertyPath: BsText
       value: 
       objectReference: {fileID: 677772814}
     - target: {fileID: 114047248079859464, guid: 7754ffc4c41eb4e40910c1ca49a37a09,
         type: 2}
-      propertyPath: bdText
+      propertyPath: BdText
       value: 
       objectReference: {fileID: 552342703}
     m_RemovedComponents: []
@@ -331,6 +331,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114382169326683486, guid: 2b672265cc10ff74aa0bf98929124b47,
+        type: 2}
+      propertyPath: RoomPrfab
+      value: 
+      objectReference: {fileID: 1975706786332780, guid: a1fe431a2bc4a2940b2503b8f131da18,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b672265cc10ff74aa0bf98929124b47, type: 2}
   m_IsPrefabParent: 0
@@ -758,9 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20386ec5f3eebbe4c853f2c11c194792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomWidth: 18
-  roomHeight: 10
-  currentRoom: {x: 0, y: 0}
+  CurrentRoom: {x: 0, y: 0}
 --- !u!224 &2039351848 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224629340560306434, guid: e38580d99ffb46341b84f08f989db26b,
