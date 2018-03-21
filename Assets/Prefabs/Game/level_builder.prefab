@@ -52,21 +52,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomPrefabs:
-  - {fileID: 1770294485871996, guid: 0d56b93acaf04e847afb3c59c4924c56, type: 2}
-  - {fileID: 1873180384760218, guid: 3a6671dcff0ae1d4680a934ca8aaab63, type: 2}
-  - {fileID: 1793046939288832, guid: f9d58b8c12bbe03478fca65ca4df4b8f, type: 2}
-  - {fileID: 1832164797915024, guid: b76a3cb4122493b46aa43cd1d031602b, type: 2}
-  - {fileID: 1972821405938360, guid: c8519a1a9e21c46439a19790c5c113c4, type: 2}
-  - {fileID: 1683106784604512, guid: b0b3006ff0ff7f647afdc687d49adbde, type: 2}
-  - {fileID: 1491931631382136, guid: 07ce975b12979a943a56310d01f03a6d, type: 2}
-  - {fileID: 1484439335536766, guid: a31229bcfd92d354b93876f454611e60, type: 2}
-  - {fileID: 1936123526251796, guid: 18a36fcdad585884392284d5f7f6498f, type: 2}
-  - {fileID: 1532961917672058, guid: f2ea732153e9cf84d89a0ff130a82895, type: 2}
-  - {fileID: 1328445719431680, guid: 428f993898ba8aa4da261d6265bbaf41, type: 2}
-  - {fileID: 1908690575623828, guid: 4be2f5d6b7e08d2438d7693bd8b97241, type: 2}
-  - {fileID: 1889822723721662, guid: ce024a03eeaf1c14ea7f073f53addc3b, type: 2}
-  - {fileID: 1611066642880794, guid: 7e81b2a967f51c94d86015ddf045f496, type: 2}
-  - {fileID: 1547696797907330, guid: e813498974f386545a3692bfa1ce8366, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 1325784767713440, guid: d05d2eba15c6d704d954ab7d0a361949, type: 2}
   gridSizeX: 4
   gridSizeY: 4
